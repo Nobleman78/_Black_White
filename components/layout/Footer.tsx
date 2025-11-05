@@ -125,18 +125,18 @@ const Footer = () => {
                         <div className="text-gray-400 leading-relaxed space-y-4">
                             <p>
                                 <strong className="text-white">Address:</strong><br />
-                                123 Architecture Lane<br />
-                                Design District, NY 10001
+                                592/1, Senpara Parbata,<br />
+                                Mirpur-10 1216 Dhaka, Bangladesh
                             </p>
 
                             <p>
                                 <strong className="text-white">Phone:</strong><br />
-                                +1 (555) 123-4567
+                                01883-505215
                             </p>
 
                             <p>
                                 <strong className="text-white">Email:</strong><br />
-                                info@architectstudio.com
+                                bnwarch.info@gmail.com
                             </p>
                         </div>
                     </div>
