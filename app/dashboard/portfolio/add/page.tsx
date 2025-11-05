@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Roboto } from 'next/font/google';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -28,9 +30,10 @@ const initialFormData: PortfolioFormData = {
 export default function AddPortfolioForm() {
     const [formData, setFormData] = useState<PortfolioFormData>(initialFormData)
     const [imageUrl, setImageUrl] = useState('');
+    const router = useRouter()
 
-    const categories = ["architecture", "interior", "craft","gardening", "building", "landscaping", "animation"];
-    
+    const categories = ["architecture", "interior", "craft", "gardening", "building", "landscaping", "animation"];
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = e.target;
         setFormData(prevData => ({
@@ -49,7 +52,7 @@ export default function AddPortfolioForm() {
             ...formData
         }
         try {
-            const response = await axios.post('http://localhost:5000/portfolio', finalData, {
+            const response = await axios.post('https://architecture-backend-liard.vercel.app/portfolio', finalData, {
                 headers: {
                     "Content-Type": "application/json",
                 }
@@ -60,6 +63,8 @@ export default function AddPortfolioForm() {
         } catch (error) {
             console.log(error)
         }
+        setFormData(initialFormData);
+        router.push("/dashboard/portfolio")
 
     };
 

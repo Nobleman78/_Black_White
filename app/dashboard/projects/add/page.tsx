@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
 import { Roboto } from 'next/font/google';
+import { useRouter } from 'next/navigation';
+
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -33,16 +35,11 @@ const initialFormData: Omit<FormData, 'features' | 'gallery'> = {
 };
 
 export default function AddProject() {
-    // State for standard form fields (excluding dynamic arrays)
     const [formData, setFormdata] = useState<Omit<FormData, 'features' | 'gallery'>>(initialFormData);
-
-    // New state for dynamic Features
     const [featureInputs, setFeatureInputs] = useState<string[]>(['']);
-
-    // State for dynamic Gallery URLs
     const [galleryInputs, setGalleryInputs] = useState<string[]>(['']);
+    const router = useRouter()
 
-    // Handler for standard input changes (title, slug, etc.)
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormdata({
             ...formData,
@@ -101,7 +98,7 @@ export default function AddProject() {
         };
 
         try {
-            const response = await axios.post("http://localhost:5000/projects", finalData, {
+            const response = await axios.post("https://architecture-backend-liard.vercel.app/projects", finalData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -120,6 +117,7 @@ export default function AddProject() {
         setFormdata(initialFormData);
         setFeatureInputs(['']);
         setGalleryInputs(['']);
+        router.push('/dashboard/projects')
     };
 
 
