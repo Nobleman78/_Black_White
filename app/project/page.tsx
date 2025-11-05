@@ -21,21 +21,24 @@ interface Project {
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState<'ongoing' | 'handover'>('ongoing');
-    const [projects, setProjects] = useState<Project[]>([])
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchProjects = async () => {
+            setLoading(true);
             try {
-                const res = await axios.get('https://architecture-backend-liard.vercel.app/projects')
-                setProjects(res.data)
+                // Fetch filtered data from backend based on status
+                const res = await axios.get(`https://architecture-backend-liard.vercel.app/projects?status=${activeTab}`);
+                setProjects(res.data);
             } catch (error) {
-                console.error("Error fetching portfolio:", error);
+                console.error("Error fetching projects:", error);
+            } finally {
+                setLoading(false);
             }
         }
-        fetchProjects()
-    }, [])
-
-    const filteredProjects = projects.filter(project => project.status === activeTab);
+        fetchProjects();
+    }, [activeTab]); 
 
     return (
         <div className='min-h-screen bg-gray-50'>
@@ -58,66 +61,74 @@ const Page = () => {
                     </div>
                 </div>
 
-                {/* Projects Grid */}
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                    {filteredProjects.map((project) => (
-                        <div key={project._id} className='bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2' >
-                            <div className='relative h-64 overflow-hidden bg-gray-200'>
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    width={300}
-                                    height={300}
-                                    className='w-full h-full object-cover hover:scale-110 transition-transform duration-500'
-                                />
-                                <div className='absolute top-4 right-4'>
-                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${project.status === 'ongoing'
-                                        ? 'bg-[#c5d64d] text-white'
-                                        : 'bg-green-500 text-white'
-                                        }`}>
-                                        {project.status === 'ongoing' ? 'In Progress' : 'Completed'}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Project Details */}
-                            <div className='p-6'>
-                                <h3 className='text-2xl font-semibold text-gray-900 mb-2'>
-                                    {project.title}
-                                </h3>
-                                <p className='text-gray-600 mb-4 text-sm leading-relaxed'>
-                                    {project.description}
-                                </p>
-
-                                <div className='space-y-2 mb-4'>
-                                    <div className='flex items-center text-sm text-gray-700'>
-                                        <IoLocation className='text-[#c5d64d] mr-2' />
-                                        <span>{project.location}</span>
-                                    </div>
-                                    <div className='flex items-center text-sm text-gray-700'>
-                                        <PiMapPinAreaBold className='text-[#c5d64d] mr-2' />
-                                        <span>{project.area}</span>
-                                    </div>
-                                    {project.completionDate && (
-                                        <div className='flex items-center text-sm text-gray-700'>
-                                            <span className='text-[#c5d64d] mr-2'>✓</span>
-                                            <span>Completed: {project.completionDate}</span>
-                                        </div>
-                                    )}
-                                </div>
-                                <Link href={`/project/${project.slug}`} className='px-5 flex items-center justify-center bg-[#c5d64d] text-white cursor-pointer font-semibold py-2 rounded-lg transition-colors duration-300'>
-                                    View Details
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Empty State */}
-                {filteredProjects.length === 0 && (
+                {/* Loading State */}
+                {loading ? (
                     <div className='text-center py-16'>
-                        <p className='text-gray-500 text-lg'>No projects found in this category.</p>
+                        <p className='text-gray-500 text-lg'>Loading projects...</p>
                     </div>
+                ) : (
+                    <>
+                        {/* Projects Grid */}
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                            {projects.map((project) => (
+                                <div key={project._id} className='bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2' >
+                                    <div className='relative h-64 overflow-hidden bg-gray-200'>
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            width={300}
+                                            height={300}
+                                            className='w-full h-full object-cover hover:scale-110 transition-transform duration-500'
+                                        />
+                                        <div className='absolute top-4 right-4'>
+                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${project.status === 'ongoing'
+                                                ? 'bg-[#c5d64d] text-white'
+                                                : 'bg-green-500 text-white'
+                                                }`}>
+                                                {project.status === 'ongoing' ? 'In Progress' : 'Completed'}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {/* Project Details */}
+                                    <div className='p-6'>
+                                        <h3 className='text-2xl font-semibold text-gray-900 mb-2'>
+                                            {project.title}
+                                        </h3>
+                                        <p className='text-gray-600 mb-4 text-sm leading-relaxed'>
+                                            {project.description}
+                                        </p>
+
+                                        <div className='space-y-2 mb-4'>
+                                            <div className='flex items-center text-sm text-gray-700'>
+                                                <IoLocation className='text-[#c5d64d] mr-2' />
+                                                <span>{project.location}</span>
+                                            </div>
+                                            <div className='flex items-center text-sm text-gray-700'>
+                                                <PiMapPinAreaBold className='text-[#c5d64d] mr-2' />
+                                                <span>{project.area}</span>
+                                            </div>
+                                            {project.completionDate && (
+                                                <div className='flex items-center text-sm text-gray-700'>
+                                                    <span className='text-[#c5d64d] mr-2'>✓</span>
+                                                    <span>Completed: {project.completionDate}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <Link href={`/project/${project.slug}`} className='px-5 flex items-center justify-center bg-[#c5d64d] text-white cursor-pointer font-semibold py-2 rounded-lg transition-colors duration-300'>
+                                            View Details
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        {/* Empty State */}
+                        {projects.length === 0 && (
+                            <div className='text-center py-16'>
+                                <p className='text-gray-500 text-lg'>No projects found in this category.</p>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>
