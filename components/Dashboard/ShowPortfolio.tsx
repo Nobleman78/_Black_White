@@ -64,7 +64,7 @@ const ShowPortfolio = () => {
                                 Year
                             </th>
 
-                            {/* <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-indigo-700 uppercase tracking-wider">Action</th> */}
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-bold text-indigo-700 uppercase tracking-wider">Action</th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
