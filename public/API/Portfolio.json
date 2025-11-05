@@ -1,0 +1,110 @@
+[
+    {
+        "_id": "69084181c2fba3c99602726d",
+        "id": 1,
+        "title": "Modern Residential Villa",
+        "category": "architecture",
+        "location": "Beverly Hills, CA",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/1/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c99602726e",
+        "id": 2,
+        "title": "Luxury Apartment Interior",
+        "category": "interior",
+        "location": "Manhattan, NY",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/2/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c99602726f",
+        "id": 3,
+        "title": "Corporate Office Complex",
+        "category": "building",
+        "location": "Downtown LA",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/3/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027270",
+        "id": 4,
+        "title": "Urban Garden Landscape",
+        "category": "landscaping",
+        "location": "San Francisco, CA",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/4/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027271",
+        "id": 5,
+        "title": "Architectural Visualization",
+        "category": "animation",
+        "location": "Virtual Project",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/5/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027272",
+        "id": 6,
+        "title": "Minimalist Living Space",
+        "category": "interior",
+        "location": "Brooklyn, NY",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/6/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027273",
+        "id": 7,
+        "title": "Sustainable Eco-Building",
+        "category": "building",
+        "location": "Portland, OR",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/7/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027274",
+        "id": 8,
+        "title": "Contemporary Beach House",
+        "category": "architecture",
+        "location": "Malibu, CA",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/8/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027275",
+        "id": 9,
+        "title": "Rooftop Garden Design",
+        "category": "landscaping",
+        "location": "Chicago, IL",
+        "year": "2024",
+        "image": "https://picsum.photos/id/112/600/400"
+    },
+    {
+        "_id": "69084181c2fba3c996027276",
+        "id": 10,
+        "title": "Project Walkthrough Animation",
+        "category": "animation",
+        "location": "Virtual Project",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/10/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027277",
+        "id": 11,
+        "title": "High-Rise Residential Tower",
+        "category": "building",
+        "location": "Miami, FL",
+        "year": "2023",
+        "image": "https://picsum.photos/seed/11/200/100"
+    },
+    {
+        "_id": "69084181c2fba3c996027278",
+        "id": 12,
+        "title": "Scandinavian Style Interior",
+        "category": "interior",
+        "location": "Seattle, WA",
+        "year": "2024",
+        "image": "https://picsum.photos/seed/12/200/100"
+    }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "title": "Modern Residential Complex",
+    "slug": "modern-residential-complex",
+    "description": "A state-of-the-art residential building with modern amenities and sustainable design.",
+    "location": "Gulshan, Dhaka",
+    "area": "12,000 sq ft",
+    "status": "ongoing",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Corporate Office Tower",
+    "slug": "corporate-office-tower",
+    "description": "Premium commercial space designed for modern business needs.",
+    "location": "Banani, Dhaka",
+    "area": "25,000 sq ft",
+    "status": "ongoing",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 3,
+    "title": "Luxury Villa",
+    "slug": "luxury-villa",
+    "description": "Contemporary villa with panoramic views and premium finishes.",
+    "location": "Dhanmondi, Dhaka",
+    "area": "8,500 sq ft",
+    "status": "handover",
+    "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+    "completionDate": "June 2024"
+  },
+  {
+    "id": 4,
+    "title": "Shopping Mall Complex",
+    "slug": "shopping-mall-complex",
+    "description": "Multi-level retail destination with modern architecture.",
+    "location": "Bashundhara, Dhaka",
+    "area": "50,000 sq ft",
+    "status": "handover",
+    "image": "https://images.unsplash.com/photo-1519642918688-7e043d0e8d01?w=800&h=600&fit=crop",
+    "completionDate": "March 2024"
+  },
+  {
+    "id": 5,
+    "title": "Boutique Hotel",
+    "slug": "boutique-hotel",
+    "description": "Elegant hospitality project with contemporary design elements.",
+    "location": "Uttara, Dhaka",
+    "area": "18,000 sq ft",
+    "status": "handover",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+    "completionDate": "January 2024"
+  }
+]
