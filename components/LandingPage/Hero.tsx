@@ -90,7 +90,7 @@ const Hero = () => {
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                className="h-[400px]">
+                className="h-[400px] lg:h-[600px]">
 
                 <SwiperSlide>
                     <div className='w-full'>
