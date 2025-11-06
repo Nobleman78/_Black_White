@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Header from './Header';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
+import FixedButton from '../LandingPage/FixedButton';
 
 export default function LayoutWrapper({
     children,
@@ -22,6 +23,7 @@ export default function LayoutWrapper({
             <Header />
             <Navbar />
             <main>{children}</main>
+            <FixedButton />
             <Footer />
         </>
     );
