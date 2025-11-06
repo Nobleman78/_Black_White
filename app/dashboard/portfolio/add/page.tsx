@@ -52,7 +52,7 @@ export default function AddPortfolioForm() {
             ...formData
         }
         try {
-            const response = await axios.post('http://localhost:5000/portfolio', finalData, {
+            const response = await axios.post('https://architecture-backend-liard.vercel.app/portfolio', finalData, {
                 headers: {
                     "Content-Type": "application/json",
                 }

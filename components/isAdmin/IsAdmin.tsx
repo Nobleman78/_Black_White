@@ -17,7 +17,7 @@ export const useAdmin = () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:5000/users/admin/${user.email}`);
+                const response = await fetch(`https://architecture-backend-liard.vercel.app/users/admin/${user.email}`);
 
                 if (!response.ok) {
                     throw new Error('Failed to check admin status');

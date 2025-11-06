@@ -15,16 +15,18 @@ interface Portfolio {
 const ShowPortfolio = () => {
     const [portFolio, setPortFolio] = useState<Portfolio[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     // Get Portfolio from the backend
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/portfolio')
+                const response = await axios.get('https://architecture-backend-liard.vercel.app/portfolio')
                 setPortFolio(response.data)
                 setLoading(false)
 
             } catch (error) {
                 console.log(error)
+                setError("Failed to load portfolio.");
                 setLoading(false)
             }
 
@@ -34,12 +36,14 @@ const ShowPortfolio = () => {
     if (loading) {
         return <div className="text-center py-10 text-xl font-semibold text-[#c5d64d]">Loading portfolio...</div>;
     }
-
+    if (error) {
+        return <div className="text-center py-10 text-xl font-semibold text-red-600">Error: {error}</div>;
+    }
     // Delete Portfolio
 
     const handleDelete = (_id: string) => {
         try {
-            axios.delete(`http://localhost:5000/portfolio/${_id}`)
+            axios.delete(`https://architecture-backend-liard.vercel.app/portfolio/${_id}`)
             setPortFolio((prevPortfolio) => prevPortfolio.filter((portfolio) => portfolio._id !== _id));
         } catch (error) {
             console.log(error)

@@ -2,7 +2,7 @@
 
 import { useAuth } from "@/components/context/AuthProvider";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 interface DashboardLayoutProps {
@@ -12,6 +12,7 @@ interface DashboardLayoutProps {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
     const pathname = usePathname();
     const { user, signOutUser } = useAuth()
+    const router = useRouter()
 
     const navItems = [
         { href: "/dashboard/portfolio", label: "Managed Portfolio" },
@@ -39,7 +40,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 })}
                 <div className="mt-10 bg-white text-black flex flex-col gap-5 p-5">
                     <h2><span className="text-lg font-semibold">Logged Email</span>: {`${user?.email}`}</h2>
-                    <button onClick={() =>  signOutUser() } className="bg-red-500 px-5 py-2 text-white" >
+                    <button onClick={() => { signOutUser(); router.push('/login') }} className="bg-red-500 px-5 py-2 text-white" >
                         Logout
                     </button>
                 </div>

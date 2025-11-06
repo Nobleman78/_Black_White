@@ -29,12 +29,12 @@ const ShowProjects = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/projects');
+                const response = await axios.get('https://architecture-backend-liard.vercel.app/projects');
                 setProjects(response.data as Project[]);
                 setLoading(false);
             } catch (err) {
                 console.error("Error fetching projects:", err);
-                setError("Failed to load projects. Check the server connection.");
+                setError("Failed to load projects.");
                 setLoading(false);
             }
         };
@@ -57,7 +57,7 @@ const ShowProjects = () => {
 
     const handleDelete = (_id: string) => {
         try {
-            axios.delete(`http://localhost:5000/projects/${_id}`)
+            axios.delete(`https://architecture-backend-liard.vercel.app/projects/${_id}`)
             setProjects((prevProjects) => prevProjects.filter((project) => project._id !== _id));
         } catch (error) {
             console.log(error)
