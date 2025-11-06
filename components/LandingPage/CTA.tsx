@@ -7,7 +7,7 @@ const roboto = Roboto({
 const CTA = () => {
     return (
         <div className="bg-[#C5D64D] p-15 flex items-center justify-between gap-5 md:gap-3 flex-col md:flex-row">
-            <p className={`text-2xl md:text-4xl ${roboto.className}`}>CONTACT US NOW TO TURN YOUR DREAM INTO REALITY</p>
+            <p className={`text-2xl text-center md:text-4xl ${roboto.className}`}>CONTACT US NOW TO TURN YOUR DREAM INTO REALITY</p>
             <a  href="tel:+017898980" className="bg-black px-4 py-4 text-white md:animate-bounce">01769799769797</a>
         </div>
     );
