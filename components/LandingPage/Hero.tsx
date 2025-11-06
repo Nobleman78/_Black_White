@@ -90,15 +90,14 @@ const Hero = () => {
                 }}
                 modules={[Autoplay, Pagination, Navigation]}
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                className="h-[600px]">
+                className="h-[400px]">
 
                 <SwiperSlide>
                     <div className='w-full'>
                         <Image
                             src={architecture}
                             alt='architecture-image'
-                            fill
-                            className='object-cover brightness-50'
+                            className='object-cover brightness-50 h-[400px] md:h-[700px] w-full'
                             priority
                         />
 
@@ -110,8 +109,7 @@ const Hero = () => {
                         <Image
                             src={interior}
                             alt='interior design'
-                            fill
-                            className='object-cover brightness-50'
+                            className='object-cover brightness-50 h-[400px] md:h-[700px] w-full'
                         />
 
                     </div>
@@ -119,12 +117,12 @@ const Hero = () => {
             </Swiper>
 
             {/* Content Overlay - Outside Swiper */}
-            <div className={`absolute inset-0 pointer-events-none z-10 ${roboto_slab.className} `}>
+            <div className={`absolute border inset-0 pointer-events-none z-10 ${roboto_slab.className} `}>
                 <div className='container mx-auto h-full px-5'>
                     <div className='flex flex-col lg:flex-row justify-between h-full gap-8 py-12'>
                         {/* Text Content - Left Side */}
-                        <div className='text-white flex-1 max-w-[800px] py-15'>
-                            <h1 className='text-4xl lg:text-[55px] font-bold mb-6 leading-tight text-left'>
+                        <div className='text-white flex-1 w-full  lg:max-w-[800px] py-10 lg:py-15'>
+                            <h1 className='text-3xl lg:text-[55px] font-bold mb-6 leading-tight text-left'>
                                 B&W Architects & Interior Designing Inspiring <span></span>
                                 <span className='text-[#a8c957]'>
                                     <AnimatePresence mode='wait'>
@@ -141,7 +139,7 @@ const Hero = () => {
                                     </AnimatePresence>
                                 </span>
                             </h1>
-                            <p className={`text-[22px] mb-8 leading-relaxed ${roboto.className}`}>
+                            <p className={`text-md lg:text-[22px] mb-8 leading-relaxed ${roboto.className}`}>
                                 From concept to completion we handle residential and commercial projects with expert care. Get a free consultation from our experienced design team today.
                             </p>
                             <Link href='/project' className='border-2 cursor-pointer border-[#a8c957] text-white bg-transparent px-10 py-4 text-base md:text-lg font-semibold hover:bg-[#a8c957] hover:text-black transition-all duration-300 uppercase tracking-wider pointer-events-auto'>

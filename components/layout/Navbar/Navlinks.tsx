@@ -53,7 +53,7 @@ const Navlinks = ({ dropdown, setDropdown, setMenuOpen }: NavlinksProps) => {
     }, [pathname, setDropdown]);
 
     return (
-        <nav className={`flex items-center gap-10 ${roboto.className} relative`}>
+        <nav className={`flex items-center gap-8 ${roboto.className} relative`}>
             {/* Desktop Navlinks */}
             {navlinks.map((nav, index) => (
                 <div key={index} className="relative hidden lg:block">

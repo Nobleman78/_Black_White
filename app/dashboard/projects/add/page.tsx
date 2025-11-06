@@ -98,7 +98,7 @@ export default function AddProject() {
         };
 
         try {
-            const response = await axios.post("https://architecture-backend-liard.vercel.app/projects", finalData, {
+            const response = await axios.post("http://localhost:5000/projects", finalData, {
                 headers: {
                     "Content-Type": "application/json",
                 },

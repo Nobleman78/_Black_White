@@ -78,7 +78,7 @@ const ServicePage = () => {
     if (!service) return <div>Service not found</div>;
 
     return (
-        <div className={`max-w-5xl mx-auto py-10 ${robotoSerif.className}`}>
+        <div className={`max-w-5xl px-5 mx-auto py-10 ${robotoSerif.className}`}>
             <Image src={service.image} alt={service.title} className="w-full h-[400px] object-cover" />
             <h2 className="text-4xl mt-6">{service.title}</h2>
             <p className="mt-4 text-lg">{service.des}</p>

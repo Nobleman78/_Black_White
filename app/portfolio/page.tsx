@@ -25,7 +25,7 @@ const Page = () => {
     useEffect(() => {
         const fetchPortFolio = async () => {
             try {
-                const res: AxiosResponse<Portfolio[]> = await axios.get("https://architecture-backend-liard.vercel.app/portfolio")
+                const res: AxiosResponse<Portfolio[]> = await axios.get("http://localhost:5000/portfolio")
                 setPortfolio(res.data);
             } catch (error) {
                 console.error("Error fetching portfolio:", error);

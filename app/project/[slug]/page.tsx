@@ -39,7 +39,7 @@ const Page = () => {
             try {
                 setLoading(true);
                 // Fetch single project by slug
-                const res = await axios.get(`https://architecture-backend-liard.vercel.app/projects/slug/${slug}`);
+                const res = await axios.get(`http://localhost:5000/projects/slug/${slug}`);
                 setProject(res.data);
                 setError(false);
             } catch (error) {

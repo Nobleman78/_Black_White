@@ -1,5 +1,6 @@
 'use client';
 
+import { useAuth } from "@/components/context/AuthProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
@@ -10,11 +11,11 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
     const pathname = usePathname();
+    const { user, signOutUser } = useAuth()
 
     const navItems = [
         { href: "/dashboard/portfolio", label: "Managed Portfolio" },
         { href: "/dashboard/projects", label: "Managed Project" }
-
     ];
 
     return (
@@ -22,7 +23,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             {/* Sidebar */}
             <aside className="w-1/4 bg-gray-800 text-white p-4 flex flex-col">
                 <h2 className="text-xl font-bold mb-6">Dashboard</h2>
-
                 {navItems.map((item) => {
                     const isActive = pathname === item.href;
                     return (
@@ -37,6 +37,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         </Link>
                     );
                 })}
+                <div className="mt-10 bg-white text-black flex flex-col gap-5 p-5">
+                    <h2><span className="text-lg font-semibold">Logged Email</span>: {`${user?.email}`}</h2>
+                    <button onClick={() =>  signOutUser() } className="bg-red-500 px-5 py-2 text-white" >
+                        Logout
+                    </button>
+                </div>
             </aside>
 
             {/* Main Content */}

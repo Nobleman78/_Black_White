@@ -19,7 +19,7 @@ const ShowPortfolio = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://architecture-backend-liard.vercel.app/portfolio')
+                const response = await axios.get('http://localhost:5000/portfolio')
                 setPortFolio(response.data)
                 setLoading(false)
 
@@ -39,7 +39,7 @@ const ShowPortfolio = () => {
 
     const handleDelete = (_id: string) => {
         try {
-            axios.delete(`https://architecture-backend-liard.vercel.app/portfolio/${_id}`)
+            axios.delete(`http://localhost:5000/portfolio/${_id}`)
             setPortFolio((prevPortfolio) => prevPortfolio.filter((portfolio) => portfolio._id !== _id));
         } catch (error) {
             console.log(error)

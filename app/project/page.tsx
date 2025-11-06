@@ -29,7 +29,7 @@ const Page = () => {
             setLoading(true);
             try {
                 // Fetch filtered data from backend based on status
-                const res = await axios.get(`https://architecture-backend-liard.vercel.app/projects?status=${activeTab}`);
+                const res = await axios.get(`http://localhost:5000/projects?status=${activeTab}`);
                 setProjects(res.data);
             } catch (error) {
                 console.error("Error fetching projects:", error);
@@ -38,7 +38,7 @@ const Page = () => {
             }
         }
         fetchProjects();
-    }, [activeTab]); 
+    }, [activeTab]);
 
     return (
         <div className='min-h-screen bg-gray-50'>

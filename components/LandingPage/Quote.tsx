@@ -45,7 +45,7 @@ const Quote = () => {
 
 
     return (
-        <div className='w-full pointer-events-auto block lg:hidden'>
+        <div className='w-full pointer-events-auto block lg:hidden px-5'>
             <form onSubmit={handleSubmitData} className="space-y-6">
                 <div className="flex flex-col sm:flex-row gap-6">
                     <div className='w-full'>
