@@ -92,26 +92,30 @@ const Hero = () => {
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                 className="h-[400px] lg:h-[600px]">
 
+
                 <SwiperSlide>
-                    <div className='w-full'>
+                    <div className='w-full relative h-[400px] md:h-[700px]'>
                         <Image
                             src={architecture}
                             alt='architecture-image'
-                            className='object-cover brightness-50 h-[400px] md:h-[700px] w-full'
+                            fill
                             priority
+                            className='object-cover brightness-50'
                         />
-
                     </div>
                 </SwiperSlide>
 
+
                 <SwiperSlide>
-                    <div className='w-full'>
+                    <div className='w-full relative h-[400px] md:h-[700px]'>
                         <Image
                             src={interior}
                             alt='interior design'
-                            className='object-cover brightness-50 h-[400px] md:h-[700px] w-full'
-                        />
+                            fill
+                            priority
+                            className='object-cover brightness-50'
 
+                        />
                     </div>
                 </SwiperSlide>
             </Swiper>
